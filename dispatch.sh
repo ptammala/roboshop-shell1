@@ -2,7 +2,7 @@
 yum install golang -y
 
 
-cp disatch.service /etc/systemd/system/dispatch.service
+cp dispatch.service /etc/systemd/system/dispatch.service
 
 useradd roboshop
 
