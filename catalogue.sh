@@ -29,6 +29,6 @@ systemctl start catalogue
 
 yum install mongodb-org-shell -y
 
-mongo --host mongodb.pdevopst74.online </app/schema/catalogue.js
+mongo --host mongodb-dev.pdevopst74.online </app/schema/catalogue.js
 
 
