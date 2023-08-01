@@ -1,7 +1,8 @@
-func_nodejs(){
+
 
 log=/tmp/roboshop.log
 
+func_nodejs(){
 echo -e "\e[31m>>>>>>  Create  a  ${component} Service File <<<<<<<<<<<<<\e[0m" | tee -a ${log}
 cp ${component}.service /etc/systemd/system/${component}.service &>> ${log}
 
