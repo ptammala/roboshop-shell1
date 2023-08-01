@@ -17,8 +17,11 @@ useradd roboshop
 echo -e "\e[31m>>>>>>  Create Application Directory <<<<<<<<<<<<<\e[0m"
 mkdir /app
 
-echo -e "\e[31m>>>>>>   Downloding Application Content <<<<<<<<<<<<<\e[0m"
+echo -e "\e[31m>>>>>>   Downloading Application Content <<<<<<<<<<<<<\e[0m"
 curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip
+
+echo -e "\e[31m>>>>>>  Cleaning Application  Content <<<<<<<<<<<<<\e[0m"
+rm -rf /app
 
 echo -e "\e[31m>>>>>>  Extracting Application Content <<<<<<<<<<<<<\e[0m"
 cd /app
