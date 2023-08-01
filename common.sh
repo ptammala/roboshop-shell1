@@ -31,7 +31,7 @@ mongo --host mongodb-dev.pdevopst74.online </app/schema/${component}.js  &>> ${l
 }
 
 func_systemd(){
-  echo -e "\e[31m>>>>>>  Starting a Catalogue Service <<<<<<<<<<<<<\e[0m"  | tee -a ${log}
+  echo -e "\e[31m>>>>>>  Starting a ${component} Service <<<<<<<<<<<<<\e[0m"  | tee -a ${log}
   systemctl daemon-reload   &>> ${log}
   systemctl enable ${component}  &>> ${log}
   systemctl start ${component}  &>> ${log}
