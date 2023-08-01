@@ -1,45 +1,45 @@
 
-echo ">>>>>>  Create  a  Catalogue Service File <<<<<<<<<<<<<"
+echo -e "\e[31m>>>>>>  Create  a  Catalogue Service File <<<<<<<<<<<<<\e[0m"
 cp catalogue.service /etc/systemd/system/catalogue.service
 
-echo ">>>>>>   Create a MongoDb Reo File <<<<<<<<<<<<<"
+echo -e "\e[31m>>>>>>   Create a MongoDb Reo File <<<<<<<<<<<<<\e[0m"
 cp mongo.repo /etc/yum.repos.d/mongo.repo
 
-echo ">>>>>>   Installing Nodejs Repo File  <<<<<<<<<<<<<"
+echo -e "\e[31m>>>>>>   Installing Nodejs Repo File  <<<<<<<<<<<<<\e[0m"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
-echo ">>>>>>  Installing Nodejs <<<<<<<<<<<<<"
+echo -e "\e[31m>>>>>>  Installing Nodejs <<<<<<<<<<<<<\e[0m"
 yum install nodejs -y
 
-echo ">>>>>>  Create Application User  <<<<<<<<<<<<<"
+echo -e "\e[31m>>>>>>  Create Application User  <<<<<<<<<<<<<\e[0m"
 useradd roboshop
 
-echo ">>>>>>  Create Application Directory <<<<<<<<<<<<<"
+echo -e "\e[31m>>>>>>  Create Application Directory <<<<<<<<<<<<<\e[0m"
 mkdir /app
 
-echo ">>>>>>   Downloding Application Content <<<<<<<<<<<<<"
+echo -e "\e[31m>>>>>>   Downloding Application Content <<<<<<<<<<<<<\e[0m"
 curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip
 
-echo ">>>>>>  Extracting Application Content <<<<<<<<<<<<<"
+echo -e "\e[31m>>>>>>  Extracting Application Content <<<<<<<<<<<<<\e[0m"
 cd /app
 unzip /tmp/catalogue.zip
 
 
-echo ">>>>>> Installing Application Dependencies <<<<<<<<<<<<<"
+echo -e "\e[31m>>>>>> Installing Application Dependencies <<<<<<<<<<<<<\e[0m"
 cd /app
 npm install
 
-echo ">>>>>>  Reloading a Deamon   <<<<<<<<<<<<<"
+echo -e "\e[31m>>>>>>  Reloading a Deamon   <<<<<<<<<<<<<\e[0m"
 systemctl daemon-reload
 
-echo ">>>>>>  Starting a Catalogue Service <<<<<<<<<<<<<"
+echo -e "\e[31m>>>>>>  Starting a Catalogue Service <<<<<<<<<<<<<\e[0m"
 systemctl enable catalogue
 systemctl start catalogue
 
-echo ">>>>>>  Installing Mongodb Client Shell <<<<<<<<<<<<<"
+echo -e "\e[31m>>>>>>  Installing Mongodb Client Shell <<<<<<<<<<<<<\e[0m"
 yum install mongodb-org-shell -y
 
-echo ">>>>>>   Load  a Cataloguie Schema  <<<<<<<<<<<<<"
+echo -e "\e[31m>>>>>>   Load  a Cataloguie Schema  <<<<<<<<<<<<<\e[0m"
 mongo --host mongodb-dev.pdevopst74.online </app/schema/catalogue.js
 
 
